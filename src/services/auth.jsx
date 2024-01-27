@@ -1,9 +1,14 @@
+const BASE_URL = 'https://backend-inventory-g22x.onrender.com';
+
 export const signUpUser = async (userData) => {
     try {
-        const response = await fetch('https://backend-inventory-g22x.onrender.com/api/auth/register', {
+        const response = await fetch(`${BASE_URL}/api/auth/register`, {
             method: 'POST',
+            mode: 'cors',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
+                // Add other headers if needed...
             },
             body: JSON.stringify(userData),
         });
@@ -20,10 +25,13 @@ export const signUpUser = async (userData) => {
 
 export const loginUser = async (userData) => {
     try {
-        const response = await fetch('https://backend-inventory-g22x.onrender.com/api/auth/login', {
+        const response = await fetch(`${BASE_URL}/api/auth/login`, {
             method: 'POST',
+            mode: 'cors',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
+                // Add other headers if needed...
             },
             body: JSON.stringify(userData),
         });
@@ -37,4 +45,3 @@ export const loginUser = async (userData) => {
         throw new Error(`Login error: ${error.message}`);
     }
 };
-

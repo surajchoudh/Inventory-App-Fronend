@@ -1,6 +1,12 @@
+const BASE_URL = 'https://backend-inventory-g22x.onrender.com';
+
 export const getInventoryItems = async () => {
     try {
-        const response = await fetch('https://backend-inventory-g22x.onrender.com/api/inventory');
+        const response = await fetch(`${BASE_URL}/api/inventory`, {
+            method: 'GET',
+            mode: 'cors',
+            credentials: 'include',
+        });
         if (!response.ok) {
             throw new Error('Error fetching inventory items.');
         }
@@ -12,8 +18,10 @@ export const getInventoryItems = async () => {
 
 export const addItemToInventory = async (itemData) => {
     try {
-        const response = await fetch('https://backend-inventory-g22x.onrender.com/api/inventory', {
+        const response = await fetch(`${BASE_URL}/api/inventory`, {
             method: 'POST',
+            mode: 'cors',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -30,8 +38,10 @@ export const addItemToInventory = async (itemData) => {
 
 export const updateInventoryItem = async (itemId, updatedData) => {
     try {
-        const response = await fetch(`https://backend-inventory-g22x.onrender.com/api/inventory/${itemId}`, {
+        const response = await fetch(`${BASE_URL}/api/inventory/${itemId}`, {
             method: 'PUT',
+            mode: 'cors',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -48,8 +58,10 @@ export const updateInventoryItem = async (itemId, updatedData) => {
 
 export const deleteInventoryItem = async (itemId) => {
     try {
-        const response = await fetch(`https://backend-inventory-g22x.onrender.com/api/inventory/${itemId}`, {
+        const response = await fetch(`${BASE_URL}/api/inventory/${itemId}`, {
             method: 'DELETE',
+            mode: 'cors',
+            credentials: 'include',
         });
         if (!response.ok) {
             throw new Error('Error deleting item from inventory.');
