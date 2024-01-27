@@ -1,7 +1,7 @@
 // Function to fetch all invoices
 export const getInvoices = async () => {
     try {
-        const response = await fetch('http://localhost:3000/api/invoice');
+        const response = await fetch('https://backend-inventory-g22x.onrender.com/api/invoice');
         if (!response.ok) {
             throw new Error('Error fetching invoices.');
         }
@@ -14,7 +14,7 @@ export const getInvoices = async () => {
 // Function to create a new invoice
 export const createInvoice = async (invoiceData) => {
     try {
-        const response = await fetch('http://localhost:3000/api/invoice', {
+        const response = await fetch('https://backend-inventory-g22x.onrender.com/api/invoice', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ export const createInvoice = async (invoiceData) => {
 // Function to update an existing invoice
 export const updateInvoice = async (invoiceId, updatedData) => {
     try {
-        const response = await fetch(`http://localhost:3000/api/invoice/${invoiceId}`, {
+        const response = await fetch(`https://backend-inventory-g22x.onrender.com/api/invoice/${invoiceId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export const updateInvoice = async (invoiceId, updatedData) => {
 // Function to delete an invoice
 export const deleteInvoice = async (invoiceId) => {
     try {
-        const response = await fetch(`http://localhost:3000/api/invoice/${invoiceId}`, {
+        const response = await fetch(`https://backend-inventory-g22x.onrender.com/api/invoice/${invoiceId}`, {
             method: 'DELETE',
         });
         if (!response.ok) {
